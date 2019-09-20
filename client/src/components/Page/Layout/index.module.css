@@ -1,0 +1,10 @@
+.layout {
+  padding: 1.5em;
+  font-size: 24px;
+}
+
+@media (max-width: 640px) {
+  .layout {
+    font-size: 18px;
+  }
+}
