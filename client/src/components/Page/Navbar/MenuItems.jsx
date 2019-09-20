@@ -5,11 +5,11 @@ import MenuItem from "./MenuItem";
 const menus = [
   {
     to: "/",
-    text: "목차"
+    text: "글 목록"
   }
 ].filter(d => typeof d === "object" && !!d);
 
-const MenuItems = () => {
+const MenuItems = ({ setClose }) => {
   const defaultStyles = menus.map(() => ({ y: 0, opacity: 0 }));
 
   const styles = styles => {
@@ -27,6 +27,7 @@ const MenuItems = () => {
             transformOrigin: "bottom",
             transform: `scaleY(${y})`
           }}
+          setClose={setClose}
         >
           {menus[i].text}
         </MenuItem>

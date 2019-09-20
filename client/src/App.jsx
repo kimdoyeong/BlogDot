@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Layout from "./components/Page/Layout";
 import routes from "./pages/route";
@@ -8,9 +8,11 @@ import { hot } from "react-hot-loader";
 function App() {
   return (
     <Layout>
-      {routes.map((props, i) => (
-        <Route key={i} {...props} />
-      ))}
+      <Switch>
+        {routes.map((props, i) => (
+          <Route key={i} {...props} />
+        ))}
+      </Switch>
     </Layout>
   );
 }

@@ -44,7 +44,7 @@ const NavbarMenu = ({ close }) => {
             width: "100%"
           }}
         >
-          <MenuItems />
+          <MenuItems setClose={setToClose} />
         </section>
       </div>
     </div>

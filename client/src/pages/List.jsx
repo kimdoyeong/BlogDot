@@ -1,10 +1,12 @@
 import React from "react";
 import Title from "../components/Page/Title";
 import PostList from "../components/PostList";
+import SEO from "../components/Page/SEO";
 
 const ListPage = () => {
   return (
     <>
+      <SEO title="글 목록" />
       <Title>글 목록</Title>
       <PostList
         data={[
