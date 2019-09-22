@@ -1,0 +1,14 @@
+.button {
+  font-size: 1em;
+  padding: 0.5em;
+  background: transparent;
+  border: 1px solid #404040;
+  color: #404040;
+  width: 100%;
+  display: block;
+}
+
+.filled {
+  background: #404040;
+  color: #f0f0f0;
+}
