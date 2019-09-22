@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { loadableReady } from "@loadable/component";
 
 import "./index.css";
 import App from "./App";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+loadableReady(() => {
+  const root = document.getElementById("root");
+
+  ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    root
+  );
+});

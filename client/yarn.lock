@@ -994,6 +994,13 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@loadable/babel-plugin@^5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@loadable/babel-plugin/-/babel-plugin-5.10.0.tgz#9d2b83649c910404214ae0da4c4a84a2a3f583ed"
+  integrity sha512-6hbsDIuHSjgATLK7m/Y7WwZ1t6vmZ22AYTtYsjK5L17KxiPm9v1hvUoheLs3jnDFUTHS6mgzD8vliZJdfsLLQA==
+  dependencies:
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
+
 "@loadable/component@^5.10.2":
   version "5.10.2"
   resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.10.2.tgz#1f51e7a0064cc0f59604b1933bbc7a1bbfd84d18"
@@ -1001,6 +1008,20 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
     hoist-non-react-statics "^3.3.0"
+
+"@loadable/server@^5.10.2":
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/@loadable/server/-/server-5.10.2.tgz#044feee9026eb104ebcbfb9e35dbfe4e7976523a"
+  integrity sha512-6B0/LxiX4iWhucSHEAgiDfQthFjRfd7cfifNv/rlvbRN+KVJh0mJwmAAlRLee3n7bDfEhoRIH3v/7p7O7OfgWw==
+  dependencies:
+    lodash "^4.17.11"
+
+"@loadable/webpack-plugin@^5.7.1":
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/@loadable/webpack-plugin/-/webpack-plugin-5.7.1.tgz#9fe4b19c347eaa72f8ff366ae9a9d2b724f86124"
+  integrity sha512-tURNYwPUahbM4Miz/mwMD+PZGnMpknRukwt4RViVX6tYOt06a5U92xJTv7t54C4tHdtCIEOmDrqCo97sfIu4mg==
+  dependencies:
+    mkdirp "^0.5.1"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -3733,7 +3754,7 @@ expect@^24.9.0:
     jest-message-util "^24.9.0"
     jest-regex-util "^24.9.0"
 
-express@^4.16.2:
+express@^4.16.2, express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   integrity sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==
@@ -4108,11 +4129,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
-
-fsevents@2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.0.7.tgz#382c9b443c6cbac4c57187cdda23aa3bf1ccfc2a"
-  integrity sha512-a7YT0SV3RB+DjYcppwVDLtn13UQnmg0SWZS7ezZD0UjnLwXmy8Zm21GMVGLaFGimIqcvyMQaOJBrop8MyOp1kQ==
 
 fsevents@^1.2.7:
   version "1.2.9"
@@ -8051,7 +8067,7 @@ react-router-dom@^5.0.1:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-router@5.0.1:
+react-router@5.0.1, react-router@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.0.1.tgz#04ee77df1d1ab6cb8939f9f01ad5702dbadb8b0f"
   integrity sha512-EM7suCPNKb1NxcTZ2LEOWFtQBQRQXecLxVpdsP4DW4PbbqYWeRiLyV/Tt1SdCrvT2jcyXAXmVTmzvSzrPR63Bg==
@@ -8066,67 +8082,6 @@ react-router@5.0.1:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
-
-react-scripts@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.1.2.tgz#40b166d380bfd8b425a41dee96e8e725c82bf9e6"
-  integrity sha512-aN9E1jn+Qii45/uLUzS7Hjfd/DXbcaAiRkoMwnJXAXShbpJiP2xwmr7yuVF0kR0cnvt0SI+IPZjsOH8MziSYQQ==
-  dependencies:
-    "@babel/core" "7.6.0"
-    "@svgr/webpack" "4.3.2"
-    "@typescript-eslint/eslint-plugin" "^2.2.0"
-    "@typescript-eslint/parser" "^2.2.0"
-    babel-eslint "10.0.3"
-    babel-jest "^24.9.0"
-    babel-loader "8.0.6"
-    babel-plugin-named-asset-import "^0.3.4"
-    babel-preset-react-app "^9.0.2"
-    camelcase "^5.2.0"
-    case-sensitive-paths-webpack-plugin "2.2.0"
-    css-loader "2.1.1"
-    dotenv "6.2.0"
-    dotenv-expand "5.1.0"
-    eslint "^6.1.0"
-    eslint-config-react-app "^5.0.2"
-    eslint-loader "3.0.0"
-    eslint-plugin-flowtype "3.13.0"
-    eslint-plugin-import "2.18.2"
-    eslint-plugin-jsx-a11y "6.2.3"
-    eslint-plugin-react "7.14.3"
-    eslint-plugin-react-hooks "^1.6.1"
-    file-loader "3.0.1"
-    fs-extra "7.0.1"
-    html-webpack-plugin "4.0.0-beta.5"
-    identity-obj-proxy "3.0.0"
-    is-wsl "^1.1.0"
-    jest "24.9.0"
-    jest-environment-jsdom-fourteen "0.1.0"
-    jest-resolve "24.9.0"
-    jest-watch-typeahead "0.4.0"
-    mini-css-extract-plugin "0.8.0"
-    optimize-css-assets-webpack-plugin "5.0.3"
-    pnp-webpack-plugin "1.5.0"
-    postcss-flexbugs-fixes "4.1.0"
-    postcss-loader "3.0.0"
-    postcss-normalize "7.0.1"
-    postcss-preset-env "6.7.0"
-    postcss-safe-parser "4.0.1"
-    react-app-polyfill "^1.0.3"
-    react-dev-utils "^9.0.4"
-    resolve "1.12.0"
-    resolve-url-loader "3.1.0"
-    sass-loader "7.2.0"
-    semver "6.3.0"
-    style-loader "1.0.0"
-    terser-webpack-plugin "1.4.1"
-    ts-pnp "1.1.4"
-    url-loader "2.1.0"
-    webpack "4.40.2"
-    webpack-dev-server "3.2.1"
-    webpack-manifest-plugin "2.0.4"
-    workbox-webpack-plugin "4.3.1"
-  optionalDependencies:
-    fsevents "2.0.7"
 
 react-side-effect@^1.1.0:
   version "1.2.0"
