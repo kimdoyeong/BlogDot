@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const password = require("../lib/password");
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   id: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   pw: {
     type: String,
@@ -15,7 +16,8 @@ const userSchema = mongoose.Schema({
   },
   username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   }
 });
 

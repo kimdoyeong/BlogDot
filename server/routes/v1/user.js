@@ -22,4 +22,33 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  const { id, pw, username } = req.body;
+  const user = new User({
+    id,
+    pw,
+    username
+  });
+  user
+    .save()
+    .then(() => {
+      res.status(201).json({ success: true });
+    })
+    .catch(e => {
+      if (e.name === "MongoError") {
+        if (e.code === 11000) {
+          res.status(422).json({
+            success: false,
+            message: "유저가 이미 존재합니다."
+          });
+          return;
+        }
+      }
+      res.status(500).json({
+        success: false,
+        message: e.message
+      });
+    });
+});
+
 module.exports = router;
