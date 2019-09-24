@@ -1,5 +1,7 @@
 const express = require("express");
 const User = require("../../models/User");
+const Code = require("../../models/Code");
+const validateCode = require("../../lib/validateCode");
 
 const router = express.Router();
 router.get("/:id", (req, res) => {
@@ -23,18 +25,26 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { id, pw, username } = req.body;
-  const user = new User({
-    id,
-    pw,
-    username
-  });
-  user
-    .save()
-    .then(() => {
+  const { id, pw, username, code } = req.body;
+
+  (async () => {
+    const validation = await validateCode(code);
+    if (!validation) {
+      res.status(403).json({
+        success: false,
+        message: "유효하지 않은 코드입니다."
+      });
+      return;
+    }
+    try {
+      const user = new User({
+        id,
+        pw,
+        username
+      });
+      await user.save();
       res.status(201).json({ success: true });
-    })
-    .catch(e => {
+    } catch (e) {
       if (e.name === "MongoError") {
         if (e.code === 11000) {
           res.status(422).json({
@@ -44,11 +54,13 @@ router.post("/", (req, res) => {
           return;
         }
       }
+      await Code.deleteOne({ _id: validation });
       res.status(500).json({
         success: false,
         message: e.message
       });
-    });
+    }
+  })();
 });
 
 module.exports = router;

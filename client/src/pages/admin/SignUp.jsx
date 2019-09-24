@@ -5,14 +5,18 @@ import SignUpForm from "../../components/SignUpPage/SignUpForm";
 
 const SignUp = () => {
   const [validated, setValidated] = useState(false);
+  const [code, setCode] = useState("");
 
   return (
     <>
       <SEO title="회원가입" />
       {validated ? (
-        <SignUpForm />
+        <SignUpForm code={code} />
       ) : (
-        <ValidationCode setState={setValidated}></ValidationCode>
+        <ValidationCode
+          setState={setValidated}
+          setCodeState={setCode}
+        ></ValidationCode>
       )}
     </>
   );

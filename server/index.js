@@ -1,6 +1,8 @@
 const app = require("./app");
 const mongoose = require("mongoose");
 
+const generateAdminCode = require("./lib/generateAdminCode");
+
 const PORT = process.env.PORT || 4000;
 const db =
   process.env.DATABASE ||
@@ -12,6 +14,9 @@ const db =
 const db_url = process.env.DATABASE_URL || "mongodb://localhost/" + db;
 mongoose
   .connect(db_url, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => {
+    return generateAdminCode();
+  })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`App listens port ${PORT}`);

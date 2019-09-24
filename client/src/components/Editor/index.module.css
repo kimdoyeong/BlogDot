@@ -1,0 +1,29 @@
+.editor {
+    font-size: 1em;
+    font-family: inherit;
+    flex: 1;
+    min-height: 60vh;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.preview {
+    flex: 1;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.wrap>* {
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .wrap {
+        flex-direction: column;
+    }
+}

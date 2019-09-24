@@ -1,4 +1,5 @@
 .button {
+  all: unset;
   font-size: 1em;
   padding: 0.5em;
   background: transparent;
@@ -6,6 +7,9 @@
   color: #404040;
   width: 100%;
   display: block;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: default;
 }
 
 .filled {

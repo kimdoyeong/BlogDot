@@ -1,11 +1,16 @@
 import React from "react";
 import { StaggeredMotion, spring } from "react-motion";
 import MenuItem from "./MenuItem";
+import { getToken } from "../../../lib/tokenStorage";
 
 const menus = [
   {
     to: "/",
     text: "글 목록"
+  },
+  getToken() && {
+    to: "/admin",
+    text: "관리자 페이지"
   }
 ].filter(d => typeof d === "object" && !!d);
 
