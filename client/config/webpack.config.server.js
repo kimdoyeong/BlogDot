@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
 const LoadablePlugin = require("@loadable/webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const publicPath = paths.servedPath;
 const publicUrl = publicPath.slice(0, -1);
@@ -31,7 +32,10 @@ module.exports = {
           },
           {
             test: /\.css$/,
-            loader: require.resolve("css-loader"),
+            use: [
+              { loader: MiniCssExtractPlugin.loader },
+              { loader: require.resolve("css-loader") }
+            ],
             options: {
               exportOnlyLocals: true
             }
@@ -39,6 +43,7 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
+              { loader: MiniCssExtractPlugin.loader },
               {
                 loader: require.resolve("css-loader"),
                 options: {
@@ -74,5 +79,13 @@ module.exports = {
     ),
     extensions: [".js", ".jsx"]
   },
-  plugins: [new webpack.DefinePlugin(env.stringified), new LoadablePlugin()]
+  plugins: [
+    new webpack.DefinePlugin(env.stringified),
+    new LoadablePlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+      ignoreOrder: false
+    })
+  ]
 };
